@@ -26,7 +26,7 @@ An [Ansible](https://www.ansible.com) role to install/configure [Percona-XtraDB-
   vars:
     ansible_master_group_name: percona-cluster-masters
   roles:
-    - ansible-role-percona-cluster
+    - maycson_fonseca.ansible_role_percona_cluster
 ```
 
 ## Build Status
