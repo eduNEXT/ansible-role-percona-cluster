@@ -2,8 +2,7 @@
 
 # MySQL Percona Package
 percona_repo_filename: "percona"
-percona_repo_baseurl: "deb http://repo.percona.com/apt {{ ansible_distribution_release }} main"
-percona_repo_gpgkey: "8507EFA5"
+percona_repository_package: "https://repo.percona.com/apt/percona-release_latest.{{ ansible_distribution_release }}_all.deb"
 percona_version: "57"
 percona_service: "mysql"
 
