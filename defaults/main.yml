@@ -1,5 +1,8 @@
 ---
 
+# Playbook Configs
+ansible_master_group_name: percona_nodes_group
+
 # MySQL Percona Package
 percona_repo_filename: "percona"
 percona_repository_package: "https://repo.percona.com/apt/percona-release_latest.{{ ansible_distribution_release }}_all.deb"
@@ -73,12 +76,12 @@ percona_databases: []
 percona_binlog_format: "ROW"
 percona_default_storage_engine: "InnoDB"
 percona_innodb_autoinc_lock_mode: "2"
-percona_master_node: "{{ hostvars[ groups[percona_nodes_group][0] ].ansible_default_ipv4.address }}"
+percona_master_node: "{{ hostvars[ groups[ansible_master_group_name][0] ].ansible_default_ipv4.address }}"
 percona_node_hostname: "{{ ansible_fqdn }}"
 percona_sst_user: "sst_user"
 percona_sst_password: "sst_password"
 percona_pxc_strict_mode: "PERMISSIVE"
-percona_wsrep_cluster_address: "gcomm://{{ groups[percona_nodes_group] | map('extract', hostvars, ['ansible_' ~ percona_bind_interface, 'ipv4', 'address']) | join(',') }}"
+percona_wsrep_cluster_address: "gcomm://{{ groups[ansible_master_group_name] | map('extract', hostvars, ['ansible_' ~ percona_bind_interface, 'ipv4', 'address']) | join(',') }}"
 percona_wsrep_cluster_name: "percona-cluster"
 percona_wsrep_provider: "/usr/lib/libgalera_smm.so"
 percona_wsrep_slave_threads: "8"
