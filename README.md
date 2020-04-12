@@ -3,6 +3,7 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [ansible-role-percona-cluster](#ansible-role-percona-cluster)
+  - [Getting Started](#getting-started)
   - [Build Status](#build-status)
   - [Role Variables](#role-variables)
   - [Dependencies](#dependencies)
@@ -15,6 +16,18 @@
 # ansible-role-percona-cluster
 
 An [Ansible](https://www.ansible.com) role to install/configure [Percona-XtraDB-Cluster]
+
+## Getting Started
+
+```yaml
+---
+- name: Percona Cluster
+  hosts: percona-cluster
+  vars:
+    ansible_master_group_name: percona-cluster-masters
+  roles:
+    - ansible-role-percona-cluster
+```
 
 ## Build Status
 
