@@ -2,6 +2,7 @@
 
 - name: Percona Cluster
   hosts: percona-cluster
-
+  vars:
+    ansible_master_group_name: percona-cluster-masters
   roles:
     - ansible-role-percona-cluster
