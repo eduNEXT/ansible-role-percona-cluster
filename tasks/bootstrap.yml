@@ -6,7 +6,7 @@
     dest: "{{ percona_config_dir }}/{{ item }}.cnf"
     owner: root
     group: root
-    mode: 0644
+    mode: '0644'
   with_items:
     - "client"
     - "mysqld"
