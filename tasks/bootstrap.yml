@@ -12,9 +12,17 @@
     - "mysqld"
     - "mysqld_safe"
     - "wsrep"
+    - debian
   notify:
     - stop percona master node
     - start percona master node bootstrap-pxc
     - create sst user
     - stop percona slave node
     - start percona slave node
+- name: logrotate configuration
+  template:
+    src: logrotate.j2
+    dest: /etc/logrotate.d/percona-xtradb-cluster-server-5.7
+    owner: root
+    group: root
+    mode: '0644'
