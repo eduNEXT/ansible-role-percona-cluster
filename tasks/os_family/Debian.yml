@@ -19,6 +19,6 @@
   apt:
     name:
       - "percona-xtradb-cluster-{{ percona_version }}"
-      - "python-pymysql"
+      - "python3-pymysql"
       - "python3-mysqldb"
     state: present
