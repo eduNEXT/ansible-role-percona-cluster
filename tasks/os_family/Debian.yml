@@ -37,3 +37,12 @@
       - "python3-pymysql"
       - "python3-mysqldb"
     state: present
+
+- name: Recursively change permissions on percona datadir after installation
+  file:
+    path: "{{ percona_datadir }}"
+    state: directory
+    recurse: yes
+    owner: "{{ percona_user }}"
+    group: "{{ percona_user }}"
+    mode: '700'
