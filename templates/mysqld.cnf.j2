@@ -11,7 +11,6 @@
 #
 
 [mysqld]
-server_id           = {{ percona_server_id }}
 user                = {{ percona_user }}
 bind-address        = {{ percona_bind_address }}
 pid-file            = {{ percona_pid_file }}
@@ -42,25 +41,29 @@ innodb_autoextend_increment     = {{ percona_innodb_autoextend_increment }}
 innodb_buffer_pool_size         = {{ percona_innodb_buffer_pool_size }}
 innodb_file_per_table           = {{ percona_innodb_file_per_table }}
 innodb_flush_log_at_trx_commit  = {{ percona_innodb_flush_log_at_trx_commit }}
-innodb_flush_method             = {{ percona_innodb_flush_method }}
+innodb_io_capacity              = {{ percona_innodb_io_capacity }}
+innodb_io_capacity_max          = {{ percona_innodb_io_capacity_max }}
 innodb_lock_wait_timeout        = {{ percona_innodb_lock_wait_timeout }}
+innodb_log_buffer_size          = {{ percona_innodb_log_buffer_size }}
+innodb_log_file_size            = {{ percona_innodb_log_file_size }}
+innodb_read_io_threads          = {{ percona_innodb_read_io_threads }}
 innodb_thread_concurrency       = {{ percona_innodb_thread_concurrency }}
+innodb_write_io_threads         = {{ percona_innodb_write_io_threads }}
 join_buffer_size                = {{ percona_join_buffer_size }}
-log_bin_trust_function_creators = {{ percona_log_bin_trust_function_creators }}
 log_queries_not_using_indexes   = {{ percona_log_queries_not_using_indexes }}
 max_allowed_packet              = {{ percona_max_allowed_packet }}
 max_connections                 = {{ percona_max_connections }}
 max_heap_table_size             = {{ percona_max_heap_table_size }}
-myisam_max_sort_file_size       = {{ percona_myisam_max_sort_file_size }}
-myisam_repair_threads           = {{ percona_myisam_repair_threads }}
-myisam_sort_buffer_size         = {{ percona_myisam_sort_buffer_size }}
-net_read_timeout                = {{ percona_net_read_timeout }} 
+net_read_timeout                = {{ percona_net_read_timeout }}
 net_write_timeout               = {{ percona_net_write_timeout }}
+open_files_limit                = {{ percona_open_files_limit }}
 query_cache_limit               = {{ percona_query_cache_limit }}
 query_cache_size                = {{ percona_query_cache_size }}
 read_buffer_size                = {{ percona_read_buffer_size }}
 read_rnd_buffer_size            = {{ percona_read_rnd_buffer_size }}
 slow_query_log                  = {{ percona_slow_query_log }}
 slow_query_log_file             = {{ percona_slow_query_log_file }}
+table_open_cache                = {{ percona_table_open_cache }}
 thread_cache_size               = {{ percona_thread_cache_size }}
+thread_stack                    = {{ percona_thread_stack }}
 tmp_table_size                  = {{ percona_tmp_table_size }}

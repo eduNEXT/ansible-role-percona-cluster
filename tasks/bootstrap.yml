@@ -9,16 +9,19 @@
     mode: '0644'
   with_items:
     - "client"
+    - "default_character_sets_and_collations"
     - "mysqld"
     - "mysqld_safe"
+    - "replication"
+    - "sst"
     - "wsrep"
-    - debian
   notify:
     - stop percona master node
     - start percona master node bootstrap-pxc
     - create sst user
     - stop percona slave node
     - start percona slave node
+
 - name: logrotate configuration
   template:
     src: logrotate.j2

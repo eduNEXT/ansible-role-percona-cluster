@@ -6,6 +6,12 @@
     state: present
     update_cache: yes
 
+- name: install required packages for SST
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ percona_debian_sst_method_dependencies }}"
+
 - name: add percona repository
   apt:
     deb: "{{ percona_repository_package }}"
