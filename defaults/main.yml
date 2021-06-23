@@ -19,6 +19,7 @@ root_password: "root"
 # MySQL Percona Config
 percona_basedir: "/usr"
 percona_bind_address: "{{ hostvars[inventory_hostname]['ansible_' + percona_bind_interface]['ipv4']['address'] }}"
+percona_mysql_service_bind_address: "127.0.0.1"
 percona_bind_interface: "eth0"
 percona_bulk_insert_buffer_size: "64M"
 percona_datadir: "/var/lib/mysql"

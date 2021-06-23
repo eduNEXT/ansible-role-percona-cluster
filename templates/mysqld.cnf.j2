@@ -12,7 +12,7 @@
 
 [mysqld]
 user                = {{ percona_user }}
-bind-address        = {{ percona_bind_address }}
+bind-address        = {{ percona_mysql_service_bind_address }}
 pid-file            = {{ percona_pid_file }}
 socket              = {{ percona_socket }}
 port                = {{ percona_port }}
