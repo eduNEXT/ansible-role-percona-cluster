@@ -99,7 +99,6 @@ percona_wsrep_sst_method: "xtrabackup-v2"
 
 # SST package dependencies:
 percona_debian_sst_method_dependencies:
-  - qpress
   - netcat
   - tar
   - pv
