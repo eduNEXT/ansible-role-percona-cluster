@@ -1,5 +1,8 @@
 [mysqld]
 server_id                  = {{ percona_server_id }}
+{% if percona_skip_slave_start %}
+skip-slave-start
+{% endif %}
 
 # Replication and binlog related options
 # See: https://mysqlhighavailability.com/mysql-group-replication-a-quick-start-guide/
