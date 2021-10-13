@@ -84,6 +84,9 @@ percona_users: []
 # MySQL Percona Databases to Create
 percona_databases: []
 
+# Standalone mode
+percona_is_standalone: false
+
 # MySQL Percona Cluster Config
 percona_binlog_format: "ROW"
 percona_default_storage_engine: "InnoDB"

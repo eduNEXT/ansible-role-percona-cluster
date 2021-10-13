@@ -15,12 +15,18 @@ binlog_format                   = {{ percona_binlog_format }}
 default_storage_engine          = {{ percona_default_storage_engine }}
 innodb_autoinc_lock_mode        = {{ percona_innodb_autoinc_lock_mode }}
 pxc_strict_mode                 = {{ percona_pxc_strict_mode }}
+{% if percona_is_standalone %}
+wsrep_cluster_address           = gcomm://
+{% else %}
 wsrep_cluster_address           = {{ percona_wsrep_cluster_address }}
+{% endif %}
 wsrep_cluster_name              = {{ percona_wsrep_cluster_name }}
 wsrep_log_conflicts
 wsrep_node_address              = {{ percona_bind_address }}
 wsrep_node_name                 = {{ percona_node_hostname }}
+{% if not percona_is_standalone %}
 wsrep_provider                  = {{ percona_wsrep_provider }}
+{% endif %}
 wsrep_slave_threads             = {{ percona_wsrep_slave_threads }}
 wsrep_sst_auth                  = "{{ percona_sst_user }}:{{ percona_sst_password }}"
 wsrep_sst_method                = {{ percona_wsrep_sst_method }}

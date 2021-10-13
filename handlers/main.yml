@@ -6,6 +6,7 @@
     state: stopped
   when:
     - percona_bind_address == percona_master_node
+    - not percona_is_standalone
 
 - name: stop percona slave node
   service:
@@ -13,12 +14,14 @@
     state: stopped
   when:
     - percona_bind_address != percona_master_node
+    - not percona_is_standalone
 
 - name: start percona master node bootstrap-pxc
   command: /etc/init.d/mysql bootstrap-pxc
   when:
     - percona_bind_address == percona_master_node
     - ansible_os_family == "Debian"
+    - not percona_is_standalone
 
 - name: start percona master node
   service:
@@ -26,6 +29,7 @@
     state: started
   when:
     - percona_bind_address == percona_master_node
+    - not percona_is_standalone
 
 - name: create sst user
   mysql_user:
@@ -37,6 +41,7 @@
     priv: "*.*:grant,reload,lock tables,process,replication client"
   when:
     - percona_bind_address == percona_master_node
+    - not percona_is_standalone
 
 - name: start percona slave node
   service:
@@ -44,3 +49,11 @@
     state: started
   when:
     - percona_bind_address != percona_master_node
+    - not percona_is_standalone
+
+- name: Restart percona standalone node
+  service:
+    name: "{{ percona_service }}"
+    state: restarted
+  when:
+    - percona_is_standalone
