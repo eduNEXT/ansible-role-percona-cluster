@@ -73,6 +73,10 @@ percona_tmpdir: "/tmp"
 percona_tmp_table_size: "16M"
 percona_user: "mysql"
 
+# Charset and collation
+percona_default_charset: "utf8"
+percona_default_collation: "utf8_general_ci"
+
 # Replication
 percona_server_id: "1"
 percona_repl_config_enable_gtid_mode: false
