@@ -51,7 +51,7 @@
     - percona_bind_address != percona_master_node
     - not percona_is_standalone
 
-- name: Restart percona standalone node
+- name: restart percona standalone node
   service:
     name: "{{ percona_service }}"
     state: restarted

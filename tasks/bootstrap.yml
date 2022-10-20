@@ -21,6 +21,7 @@
     - create sst user
     - stop percona slave node
     - start percona slave node
+    - restart percona standalone node
 
 - name: logrotate configuration
   template:
